@@ -1,2 +1,2 @@
 # git
-SexyCoders gitlab solution
+SexyCoders gitea solution
