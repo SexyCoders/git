@@ -2,7 +2,6 @@ version: "3.6"
 
 networks:
   gitea:
-    external: false
 
 services:
   server:
@@ -19,7 +18,7 @@ services:
     networks:
       - gitea
     volumes:
-      - /data/etc/gitea:/data
+      - /data/gitea:/data
     expose:
       - 3001
       - 3080
@@ -28,7 +27,7 @@ services:
       - db
 
   db:
-    image: mysql:5.7
+    image: mariadb:10.2
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=gitea
@@ -38,4 +37,4 @@ services:
     networks:
       - gitea
     volumes:
-      - /data/etc/gitea/mariadb:/var/lib/mysql
+      - /data/gitea/mariadb:/var/lib/mysql
